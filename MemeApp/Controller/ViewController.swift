@@ -30,18 +30,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        topTextField.delegate = self
-        topTextField.text = LABEL_TOP_TEXT
-        topTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.textAlignment = .center
-        
-        bottomTextField.delegate = self
-        bottomTextField.text = LABEL_BOTTOM_TEXT
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.textAlignment = .center
-        
+                
         subscribeNotificationCenter()
+        setupTextField(topTextField, labelText: LABEL_TOP_TEXT)
+        setupTextField(bottomTextField, labelText: LABEL_BOTTOM_TEXT)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,9 +61,11 @@ class ViewController: UIViewController {
         
         let activityViewController = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = { [weak self] activity, completed, items, error in
-            //Save image
-            self?.save()
-            self?.dismiss(animated: true, completion: nil)
+            if completed {
+                //Save image
+                self?.save()
+                self?.dismiss(animated: true, completion: nil)
+            }
         }
         
         present(activityViewController, animated: true, completion: nil)
@@ -157,6 +151,13 @@ private extension ViewController {
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
+    }
+    
+    func setupTextField(_ textField: UITextField, labelText: String) {
+        textField.delegate = self
+        textField.text = labelText
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = .center
     }
 }
 
