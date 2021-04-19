@@ -24,6 +24,10 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSCameraUsageDescription</key>
+	<string>MemeApp would like to use camera for taking pictures</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>MemeApp would like to access Photo Library for pictures.</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
