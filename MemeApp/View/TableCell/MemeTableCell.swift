@@ -17,8 +17,8 @@ class MemeTableCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func setData(image: UIImage, desc: String) {
-        //memeImageView.image = image
-        memeDescriptionLabel.text = desc
+    func setData(data: MemeDataModel) {
+        memeImageView.image = data.memedImage
+        memeDescriptionLabel.text = "\(data.topText ?? "") \n\(data.bottomText ?? "")"
     }
 }

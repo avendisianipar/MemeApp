@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Yjd-2F-3zf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Yjd-2F-3zf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Create Meme View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="MemeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateMemeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="CreateMemeViewController" customModule="MemeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,7 +77,8 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="3VN-Ek-lQ9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="885-mS-ZKU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="n53-wy-pSH" secondAttribute="bottom" id="HWV-t9-fet"/>
@@ -94,7 +97,6 @@
                             <constraint firstItem="3VN-Ek-lQ9" firstAttribute="top" secondItem="PBt-QV-Feu" secondAttribute="bottom" constant="35" id="wjE-of-LPK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3VN-Ek-lQ9" secondAttribute="trailing" constant="50" id="yhg-aa-ZwP"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="albumButton" destination="qUI-cS-S0n" id="Xs9-T0-6W0"/>
@@ -108,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2110" y="242"/>
+            <point key="canvasLocation" x="1974" y="247"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="V0K-ca-qfm">
@@ -126,9 +128,9 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s4T-Yc-Wtn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1243" y="128"/>
+            <point key="canvasLocation" x="-1261" y="246"/>
         </scene>
-        <!--Meme List View Controller-->
+        <!--List MemeApp-->
         <scene sceneID="o6t-es-Aph">
             <objects>
                 <viewController id="o1f-Rd-w0W" customClass="MemeListViewController" customModule="MemeApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -144,10 +146,11 @@
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QdB-LL-gdA">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="W2B-kb-jrp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="W2B-kb-jrp" firstAttribute="trailing" secondItem="och-0F-wtT" secondAttribute="trailing" constant="20" id="B2X-tF-bjh"/>
                             <constraint firstItem="och-0F-wtT" firstAttribute="leading" secondItem="W2B-kb-jrp" secondAttribute="leading" constant="20" id="LM1-pb-m2g"/>
@@ -159,9 +162,14 @@
                             <constraint firstItem="och-0F-wtT" firstAttribute="centerX" secondItem="uyK-OZ-Qrn" secondAttribute="centerX" id="nZq-Y7-yv9"/>
                             <constraint firstItem="QdB-LL-gdA" firstAttribute="trailing" secondItem="W2B-kb-jrp" secondAttribute="trailing" id="sal-Yh-AjE"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="W2B-kb-jrp"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cQI-pg-eyY"/>
+                    <navigationItem key="navigationItem" title="List MemeApp" id="8EI-28-QFE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="RYc-hG-w9l">
+                            <connections>
+                                <action selector="createMemeDidTap:" destination="o1f-Rd-w0W" id="C2n-Um-8ou"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="defaultEmptyLabel" destination="och-0F-wtT" id="bdx-3n-CFv"/>
                         <outlet property="tableView" destination="QdB-LL-gdA" id="fy9-Yc-Uls"/>
@@ -171,7 +179,7 @@
             </objects>
             <point key="canvasLocation" x="800.00000000000011" y="-109.15178571428571"/>
         </scene>
-        <!--Meme Grid View Controller-->
+        <!--Grid MemeApp-->
         <scene sceneID="pOt-fk-88y">
             <objects>
                 <viewController id="f2q-Bs-YTK" customClass="MemeGridViewController" customModule="MemeApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -187,7 +195,7 @@
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9hp-QI-ZEr">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gc8-qg-Clp">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -206,7 +214,8 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="hkb-5Z-R0d"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="yN1-vA-tm8" firstAttribute="centerY" secondItem="uB0-B0-vuo" secondAttribute="centerY" id="4nn-T1-vYP"/>
                             <constraint firstItem="9hp-QI-ZEr" firstAttribute="leading" secondItem="hkb-5Z-R0d" secondAttribute="leading" id="FVb-58-Nji"/>
@@ -217,9 +226,14 @@
                             <constraint firstItem="hkb-5Z-R0d" firstAttribute="trailing" secondItem="yN1-vA-tm8" secondAttribute="trailing" constant="20" id="edJ-oG-Afv"/>
                             <constraint firstItem="yN1-vA-tm8" firstAttribute="centerX" secondItem="uB0-B0-vuo" secondAttribute="centerX" id="xQD-vv-8LO"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="hkb-5Z-R0d"/>
                     </view>
-                    <navigationItem key="navigationItem" id="OcI-ch-QsR"/>
+                    <navigationItem key="navigationItem" title="Grid MemeApp" id="9cr-85-JEW">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9kB-hS-wc0">
+                            <connections>
+                                <action selector="createMemeDidTap:" destination="f2q-Bs-YTK" id="oea-4X-jQd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="9hp-QI-ZEr" id="bea-pP-kbC"/>
                         <outlet property="defaultEmptyLabel" destination="yN1-vA-tm8" id="rQe-eI-NrW"/>
@@ -269,9 +283,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera.fill" catalog="system" width="128" height="96"/>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

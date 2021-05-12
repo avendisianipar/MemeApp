@@ -20,6 +20,24 @@ class MemeGridViewController: UIViewController {
         super.viewDidLoad()
         initCollectionView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if MemeLocalData.count() > 0 {
+            collectionView.reloadData()
+            collectionView.isHidden = false
+        } else {
+            collectionView.isHidden = true
+        }
+    }
+    
+    @IBAction func createMemeDidTap(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let controller = storyboard.instantiateViewController(withIdentifier: "CreateMemeViewController") as? CreateMemeViewController {
+            controller.delegate = self
+            navigationController?.present(controller, animated: true, completion: nil)
+        }
+    }
 }
 
 private extension MemeGridViewController {
@@ -34,7 +52,7 @@ private extension MemeGridViewController {
 
 extension MemeGridViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return MemeLocalData.count()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -42,7 +60,7 @@ extension MemeGridViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.setData(image: UIImage())
+        cell.setData(data: MemeLocalData.getMemes(indexPath.row))
         
         return cell
     }
@@ -64,5 +82,12 @@ extension MemeGridViewController: UICollectionViewDelegate, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
+    }
+}
+
+extension MemeGridViewController: CreateMemeDelegate {
+    func didSaveSuccessful() {
+        collectionView.reloadData()
+        collectionView.isHidden = false
     }
 }

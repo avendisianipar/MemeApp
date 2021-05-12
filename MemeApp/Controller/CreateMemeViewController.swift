@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+protocol CreateMemeDelegate: AnyObject {
+    func didSaveSuccessful()
+}
+
+class CreateMemeViewController: UIViewController {
     
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var imageView: UIImageView!
@@ -27,6 +31,8 @@ class ViewController: UIViewController {
     
     private let LABEL_TOP_TEXT = "TOP TEXT"
     private let LABEL_BOTTOM_TEXT = "BOTTOM TEXT"
+    
+    weak var delegate: CreateMemeDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,10 +81,11 @@ class ViewController: UIViewController {
         imageView.image = nil
         topTextField.text = LABEL_TOP_TEXT
         bottomTextField.text = LABEL_BOTTOM_TEXT
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
-private extension ViewController {
+private extension CreateMemeViewController {
     func showImagePicker(_ source: UIImagePickerController.SourceType) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = source
@@ -140,17 +147,14 @@ private extension ViewController {
                 return
         }
         
-        let meme = MemeModel(topText: topText,
-                             bottomText: bottomText,
-                             image: imageView,
-                             memedImage: memedImage)
+        let meme = MemeDataModel(topText: topText,
+                                 bottomText: bottomText,
+                                 image: imageView,
+                                 memedImage: memedImage)
         
-        // Add it to the memes array in the Application Delegate
-        //let object = UIApplication.shared.delegate
-        //save shared image to memes array
-        let object = UIApplication.shared.delegate
-        let appDelegate = object as! AppDelegate
-        appDelegate.memes.append(meme)
+        MemeLocalData.addMeme(meme)
+        
+        delegate?.didSaveSuccessful()
     }
     
     func setupTextField(_ textField: UITextField, labelText: String) {
@@ -161,7 +165,7 @@ private extension ViewController {
     }
 }
 
-extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension CreateMemeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerOriginalImage")] as? UIImage {
             imageView.image = image
@@ -170,7 +174,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     }
 }
 
-extension ViewController: UITextFieldDelegate {
+extension CreateMemeViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if topTextField == textField && topTextField.text == LABEL_TOP_TEXT {
             topTextField.text = ""
