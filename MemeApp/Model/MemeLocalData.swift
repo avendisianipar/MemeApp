@@ -13,11 +13,6 @@ struct MemeDataModel {
     var bottomText: String?
     var image: UIImage?
     var memedImage: UIImage?
-    
-    //Locate the Meme storage location
-    static func getMeme() -> AppDelegate {
-        return UIApplication.shared.delegate as! AppDelegate
-    }
 }
 
 class MemeLocalData: NSObject {    

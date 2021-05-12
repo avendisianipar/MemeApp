@@ -62,6 +62,14 @@ extension MemeListViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let controller = storyboard.instantiateViewController(withIdentifier: "MemeDetailViewController") as? MemeDetailViewController {
+            controller.memeData = MemeLocalData.getMemes(indexPath.row)
+            navigationController?.pushViewController(controller, animated: true)
+        }
+    }
 }
 
 extension MemeListViewController: UITableViewDelegate {

@@ -83,6 +83,14 @@ extension MemeGridViewController: UICollectionViewDelegate, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let controller = storyboard.instantiateViewController(withIdentifier: "MemeDetailViewController") as? MemeDetailViewController {
+            controller.memeData = MemeLocalData.getMemes(indexPath.row)
+            navigationController?.pushViewController(controller, animated: true)
+        }
+    }
 }
 
 extension MemeGridViewController: CreateMemeDelegate {

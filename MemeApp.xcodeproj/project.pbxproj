@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F409BD6D264C3A1700DC2271 /* MemeLocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409BD6C264C3A1700DC2271 /* MemeLocalData.swift */; };
+		F409BD6F264C53A800DC2271 /* MemeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409BD6E264C53A800DC2271 /* MemeDetailViewController.swift */; };
 		F443DC132631972F002F6260 /* MemeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443DC122631972F002F6260 /* MemeListViewController.swift */; };
 		F443DC1526319738002F6260 /* MemeGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443DC1426319738002F6260 /* MemeGridViewController.swift */; };
 		F443DC1B26319905002F6260 /* MemeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443DC1926319905002F6260 /* MemeTableCell.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		F409BD6C264C3A1700DC2271 /* MemeLocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeLocalData.swift; sourceTree = "<group>"; };
+		F409BD6E264C53A800DC2271 /* MemeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeDetailViewController.swift; sourceTree = "<group>"; };
 		F443DC122631972F002F6260 /* MemeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeListViewController.swift; sourceTree = "<group>"; };
 		F443DC1426319738002F6260 /* MemeGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeGridViewController.swift; sourceTree = "<group>"; };
 		F443DC1926319905002F6260 /* MemeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeTableCell.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				F443DC122631972F002F6260 /* MemeListViewController.swift */,
 				F443DC1426319738002F6260 /* MemeGridViewController.swift */,
 				F482B3F1262985DA002871FA /* CreateMemeViewController.swift */,
+				F409BD6E264C53A800DC2271 /* MemeDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				F482B3EE262985DA002871FA /* AppDelegate.swift in Sources */,
 				F443DC1526319738002F6260 /* MemeGridViewController.swift in Sources */,
 				F409BD6D264C3A1700DC2271 /* MemeLocalData.swift in Sources */,
+				F409BD6F264C53A800DC2271 /* MemeDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
