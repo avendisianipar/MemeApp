@@ -24,6 +24,7 @@ private extension MemeDetailViewController {
     func setUpData() {
         if let data = memeData {
             imageDetailView.image = data.memedImage
+            imageDetailView.contentMode = .scaleAspectFit
         } else {
             let alert = UIAlertController(title: "Ops...", message: "Failed to load image, please try again later.", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
